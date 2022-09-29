@@ -100,7 +100,7 @@ st.pyplot(sentiment(df1))
 st.header('Top 20 Words')
 st.write("""Below is a visualization of the 20 most used descriptive and object words and their count. 
          This visualization was based on object and descriptive words as a way to remove frequent common words 
-         such as cvonjunction and pronouns; narrowing the field down to just decriptors and objects helps us identify
+         such as conjunctions and pronouns. Narrowing the field down to just decriptors and objects helps us identify
          common thoughts held towards parfumado""")
 
 st.pyplot(common_words(df1))
