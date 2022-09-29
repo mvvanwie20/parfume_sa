@@ -86,13 +86,13 @@ def common_words(df):
     
     tokenizer = RegexpTokenizer(r'\w+')
     token_list=tokenizer.tokenize(str(review_list))
-    token_list=token_list.remove('t')
+   
     list = [''.join(x for x in i if x.isalpha()) for i in token_list] 
     
     tags = nltk.pos_tag(list)
     descriptors = [word for word,pos in tags if (pos == 'JJ'or pos == 'NN')]
-    
-    counterd=Counter(descriptors)
+    descriptors1=descriptors.remove('t')
+    counterd=Counter(descriptors1)
     
     top20words= counterd.most_common(20)
     words = []
