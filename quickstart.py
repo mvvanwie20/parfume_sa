@@ -137,26 +137,26 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.header('Reviews Over Time')
 st.write("""Below are the reviews organized by time. The data was split into the months the reviews were
-written and given a count of occurences. This data was then plotted as seen below. March of 2021 had the highest spike 
+written and given counts of occurences. This data was then plotted as seen below. March of 2021 had the highest spike 
 reviews posted, perhaps this correlated with a campaign.""")
 st.pyplot(months(df1))
 
 st.header('Sentiment Analysis')
-st.write("""Below are the results of the senitment analysis of the reviews. 
+st.write("""Below are the results of the sentiment analysis of the reviews. 
 Reviews were broken up into sentences and then analyzed using NLTK's VADER sentiment analysis module
-to calculate their general tone. The majority of messages have a neutral tone, but positive sentiments outwiegh
-the negative in this investigation.""")
+to calculate their general tone. The majority of messages have a neutral characteristics, but positive sentiments 
+significantly outweigh the negative in this investigation.""")
 st.pyplot(sentiment(df1))
 
 st.header('Top 20 Words')
 st.write("""Below is a visualization of the 20 most used descriptive and object words and their count. 
          This visualization was based on these categories as a way to remove frequent common words, 
-         such as conjunctions and pronouns, and helps us identify common thoughts held towards Parfumado.""")
+         such as conjunctions and pronouns, and helps us identify common perceptions of Parfumado.""")
 
 st.pyplot(common_words(df1))
 
 st.header('Most Used Words')
-st.write("""Finally, we have a word cloud of the most common words over all; Just as you mentioned Martijn :)""")
+st.write("""Finally, we have a word cloud of the most frequent words over all; Just as you mentioned Martijn :)""")
 
 st.image(png)
 
