@@ -6,6 +6,7 @@ from nltk.tokenize import RegexpTokenizer
 from collections import Counter
 from nltk.sentiment import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
+import imageio as iio
 
 
 
@@ -13,6 +14,9 @@ import matplotlib.pyplot as plt
 # -----------------------------------------------------------
 #Upload the csv file from github
 df1 = pd.read_csv('reviewscsv.csv')
+
+#Upload image
+png=iio.imread("word-cloud.png")
 
 #function that graphs reviews by month
 def months(df):
@@ -146,4 +150,9 @@ st.write("""Below is a visualization of the 20 most used descriptive and object 
          common thoughts held towards parfumado""")
 
 st.pyplot(common_words(df1))
+
+st.header('Most Used Words')
+st.write("""Finally we have a word cloud of the most common words. Just as you mentioned Martijn :)""")
+
+st.image(png)
 
