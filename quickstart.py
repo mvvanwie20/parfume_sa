@@ -86,7 +86,7 @@ def common_words(df):
     
     tokenizer = RegexpTokenizer(r'\w+')
     token_list=tokenizer.tokenize(str(review_list))
-    del token_list['t']
+    token_list.remove('t')
     list = [''.join(x for x in i if x.isalpha()) for i in token_list] 
     
     tags = nltk.pos_tag(list)
