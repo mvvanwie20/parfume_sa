@@ -86,13 +86,16 @@ def common_words(df):
     
     tokenizer = RegexpTokenizer(r'\w+')
     token_list=tokenizer.tokenize(str(review_list))
-   
+    
+    #Keep only words remove numbers
     list = [''.join(x for x in i if x.isalpha()) for i in token_list] 
     
+    #create part of speach tags and keep only adj and nouns
     tags = nltk.pos_tag(list)
     descriptors = [word for word,pos in tags if (pos == 'JJ'or pos == 'NN')]
-    descriptors1=descriptors.remove('t')
-    counterd=Counter(descriptors1)
+    
+    #count occurences of words
+    counterd=Counter(descriptors)
     
     top20words= counterd.most_common(20)
     words = []
@@ -100,6 +103,8 @@ def common_words(df):
     for item in top20words:
          words.append(item[0])
          counts.append(item[1])
+    
+    #plot graph
     plt.style.use('ggplot')
     plt.xlabel("Count")
     plt.ylabel("Words")  
