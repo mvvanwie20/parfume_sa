@@ -87,7 +87,7 @@ def common_words(df):
     #convert to list and tokenize by word
     review_list=df['Review'].values.tolist()
     
-    tokenizer = RegexpTokenizer(r'\w+')
+    #tokenizer = RegexpTokenizer(r'\w+')
     token_list=tokenizer.tokenize(str(review_list))
     
     #Keep only words remove numbers
@@ -100,7 +100,11 @@ def common_words(df):
     #count occurences of words
     counterd=Counter(descriptors)
     
-    top20words= counterd.most_common(20)
+    #take top 20 (in this case 21 and remove the falsely classifed value)
+    top20words= counterd.most_common(21)
+    del top20words[8]
+    
+    #Make words and counts list for graph
     words = []
     counts = []
     for item in top20words:
