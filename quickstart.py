@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import nltk
+nltk.download('punkt')
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import punkt
@@ -16,6 +17,8 @@ df1 = pd.read_csv('reviewscsv.csv')
 
 
 def sentiment(df):
+    import nltk
+    nltk.download('punkt')
     df=df[df["Review"].str.contains("Translated by Google")==False]
     df=df.astype(str).apply(lambda x: x.str.encode('ascii', 'ignore').str.decode('ascii'))
     
