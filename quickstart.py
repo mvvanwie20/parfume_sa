@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
 import nltk
-#nltk.download('punkt')
-#nltk.download('vader_lexicon')
-#nltk.download('averaged_perceptron_tagger')
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import punkt
@@ -33,16 +30,15 @@ def sentiment(df):
     sia_scores=sia.polarity_scores(str(lines_list))
     del sia_scores['compound']
     
-    labels = []
+    labels = ['Negative','Neutral','Positive']
     sizes = []
 
     for x, y in sia_scores.items():
-        labels.append(x)
         sizes.append(y)
 
     plt.style.use('ggplot')
-
-    plt.pie(sizes, labels=labels,autopct='%1.1f%%')
+    explode= [0, 0.1, 0, 0]
+    plt.pie(sizes, explode=explode, labels=labels,autopct='%1.1f%%',shadow=True)
     plt.title('Sentiment of Reviews')
     plt.axis('equal')
     plt.show()
@@ -102,10 +98,10 @@ for their sentiment.""")
 st.pyplot(sentiment(df1))
 
 st.header('Top 20 Words')
-st.write(""""Below is a visualization of the 20 most used descriptive and object words and their count. 
+st.write("""Below is a visualization of the 20 most used descriptive and object words and their count. 
          This visualization was based on object and descriptive words as a way to remove frequent common words 
          such as cvonjunction and pronouns; narrowing the field down to just decriptors and objects helps us identify
-         common thoughts held of parfumado""")
+         common thoughts held towards parfumado""")
 
 st.pyplot(common_words(df1))
 
