@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 import nltk
-nltk.download('punkt')
-nltk.download('vader_lexicon')
-nltk.download('averaged_perceptron_tagger')
+#nltk.download('punkt')
+#nltk.download('vader_lexicon')
+#nltk.download('averaged_perceptron_tagger')
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import punkt
@@ -76,7 +76,7 @@ def common_words(df):
     plt.style.use('ggplot')
     plt.xlabel("Count")
     plt.ylabel("Words")  
-    plt.title("Most Popular(helpful) Words")
+    plt.title("Most Popular(filtered) Words")
     plt.barh(words, counts)
 
     plt.show()
@@ -96,11 +96,16 @@ if df_display:
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.header('Sentiment Analysis')
-st.write("Below are the results of the senitment analysis of the reviews")
+st.write("""Below are the results of the senitment analysis of the reviews. 
+Reviews were broken up into sentences and then analyzed using NLTK's VADER sentiment analysis module
+for their sentiment.""")
 st.pyplot(sentiment(df1))
 
 st.header('Top 20 Words')
-st.write("Below is a visualization of the 20 most used descriptive and object words and their count")
+st.write(""""Below is a visualization of the 20 most used descriptive and object words and their count. 
+         This visualization was based on object and descriptive words as a way to remove frequent common words 
+         such as cvonjunction and pronouns; narrowing the field down to just decriptors and objects helps us identify
+         common thoughts held of parfumado""")
 
 st.pyplot(common_words(df1))
 
