@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import nltk
-nltk.download('punkt')
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import punkt
