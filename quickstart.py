@@ -87,7 +87,7 @@ def common_words(df):
     #convert to list and tokenize by word
     review_list=df['Review'].values.tolist()
     
-    #tokenizer = RegexpTokenizer(r'\w+')
+    tokenizer = RegexpTokenizer(r'\w+')
     token_list=tokenizer.tokenize(str(review_list))
     
     #Keep only words remove numbers
