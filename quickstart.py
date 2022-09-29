@@ -3,6 +3,7 @@ import pandas as pd
 import nltk
 nltk.download('punkt')
 nltk.download('vader_lexicon')
+nltk.download('averaged_perceptron_tagger')
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import punkt
@@ -48,6 +49,9 @@ def sentiment(df):
 
 
 def common_words(df):
+    import nltk
+    nltk.download('averaged_perceptron_tagger')
+    
     df=df[df["Review"].str.contains("Translated by Google")==False]
     df=df.astype(str).apply(lambda x: x.str.encode('ascii', 'ignore').str.decode('ascii'))
     
