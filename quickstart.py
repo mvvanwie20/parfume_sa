@@ -37,7 +37,7 @@ def sentiment(df):
         sizes.append(y)
 
     plt.style.use('ggplot')
-    explode= [0, 0.1, 0, 0]
+    explode= [0, 0.1, 0]
     plt.pie(sizes, explode=explode, labels=labels,autopct='%1.1f%%',shadow=True)
     plt.title('Sentiment of Reviews')
     plt.axis('equal')
