@@ -3,7 +3,6 @@ import pandas as pd
 import nltk
 from nltk import tokenize
 from nltk.tokenize import RegexpTokenizer
-from nltk.tokenize import punkt
 from collections import Counter
 from nltk.sentiment import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
