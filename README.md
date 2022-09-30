@@ -5,3 +5,5 @@ This project was an exploration of NLTK language processing and Streamlit web ap
 The final dashboard can be seen [here](https://mvvanwie20-parfume-sa-quickstart-2l6euh.streamlitapp.com/)
 
 or copy pasted from here: https://mvvanwie20-parfume-sa-quickstart-2l6euh.streamlitapp.com/
+
+The link does not open in Safari, please use Google Chrome for best results
